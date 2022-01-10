@@ -9,6 +9,8 @@ def parser():
 						help="To get old version of file before reformat, set -go 1 (1 for True and 0 for False)", 
 						default=False, type=bool
 					)
+	parse.add_argument("--tab-size", "-t", help="python file path (.py)", type=int)
+	
 
 	return parse.parse_args()
 
@@ -21,22 +23,23 @@ def getFileContent(path: str) -> [str]:
 def isPythonFile(file_path):
 	return ".py" in file_path and file_path.index(".py") == len(file_path) - 3 # 3 for length of ".py"
 
-def whitespacesToTabs(string):
+def whitespacesToTabs(string, tab_size=4):
 	""" Replace all start whitespaces (with tab) to tabulations once 
 
 	"""
 
-	wspaces = int()
+	spaces = 0
+	tabs = 0
 
 	for char in string:
 		if char == " ":
-			wspaces += 1
+			spaces += 1
 		elif char == "\t":
-			wspaces += 4
+			tabs += 1
 		else:
 			break
 
-	tabs = round(wspaces/4)
+	tabs += round(spaces/tab_size)
 
 	new_string = re.sub(r"^(( |\t)+)", "\t" * tabs, string)
 
