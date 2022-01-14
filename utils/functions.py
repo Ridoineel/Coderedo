@@ -10,13 +10,11 @@ def parser():
 
 def getFileContent(path: str) -> [str]:
 	file = open(path, "r")
-
 	contents = file.readlines()
 
 	return contents
 
 def getFilePath():
-
 	file_path = parser().file
 
 	return file_path
@@ -36,13 +34,6 @@ def whitespacesToTabs(string):
 		else:
 			break
 
-	# i = 0
-	# while string[i] == " ":
-	# 	i += 1
-
-	# wspaces = i
-	print(wspaces)
-
 	tabs = ceil(wspaces/4)
 
 	new_string = re.sub(r"^(( |\t)+)", "\t" * tabs, string)
@@ -50,7 +41,6 @@ def whitespacesToTabs(string):
 	return new_string
 
 def createNewFile(file_path, contents: [str]):
-
 	file = open(file_path, "w")
 
 	for line in contents:
