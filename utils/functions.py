@@ -9,7 +9,7 @@ def parser():
 	return parse.parse_args()
 
 def getFileContent(path: str) -> [str]:
-	file = open(path, "r")
+	file = open(path, "r") 
 	contents = file.readlines()
 
 	return contents
@@ -20,7 +20,7 @@ def getFilePath():
 	return file_path
 
 def whitespacesToTabs(string):
-	""" Replace all start whitespaces by tabulations 
+	""" Replace all start whitespaces (with tab) to tabulations once 
 
 	"""
 
@@ -34,7 +34,7 @@ def whitespacesToTabs(string):
 		else:
 			break
 
-	tabs = ceil(wspaces/4)
+	tabs = round(wspaces/4)
 
 	new_string = re.sub(r"^(( |\t)+)", "\t" * tabs, string)
 
