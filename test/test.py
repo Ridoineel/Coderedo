@@ -1,6 +1,7 @@
-def read():
-print("ridoine")
-	print("Garcons")
 
-	if 1 == 2:
-		print("riodine")
+def func():
+	print("Hello Wolrd !")
+	print("RidoineEl - RE")
+
+
+func()
