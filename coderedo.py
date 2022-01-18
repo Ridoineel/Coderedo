@@ -1,13 +1,21 @@
 #! /usr/bin/env python3
 
-# import os
+import os
 from utils.functions import *
+from utils.Class import *
 
 
 def main():
 	
 	file_path = getFilePath()
-	# filename = os.path.basename(file_path)
+
+	if not file_path:
+		os.system(f"{__file__} --help")
+		exit()
+	elif not (os.path.exists(file_path) and isPythonFile(file_path)):
+		print(OutMessage.errorFile())
+		exit()
+
 	file_content = getFileContent(file_path)
 
 	for i in range(len(file_content)):
@@ -20,6 +28,9 @@ def main():
 	new_file_path = re.sub(r"(\.py)", r"-coderedo.py", file_path)
 
 	createNewFile(new_file_path, file_content)
+
+	# success message
+	print(OutMessage.success(new_file_path))
 
 if __name__ == '__main__':
 	main()

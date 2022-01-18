@@ -19,6 +19,9 @@ def getFilePath():
 
 	return file_path
 
+def isPythonFile(file_path):
+	return ".py" in file_path and file_path.index(".py") == len(file_path) - 3 # 3 for length of ".py"
+
 def whitespacesToTabs(string):
 	""" Replace all start whitespaces (with tab) to tabulations once 
 

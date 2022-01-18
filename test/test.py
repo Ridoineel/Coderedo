@@ -1,6 +1,6 @@
 def read():
- print("ridoine")
+print("ridoine")
 	print("Garcons")
 
-   if 1 == 2:
- 	 print("riodine")
+	if 1 == 2:
+		print("riodine")
