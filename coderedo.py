@@ -6,8 +6,9 @@ from utils.Class import *
 
 
 def main():
+	data = parser()
 	
-	file_path = getFilePath()
+	file_path = data.file
 
 	if not file_path:
 		os.system(f"{__file__} --help")
@@ -17,10 +18,12 @@ def main():
 		exit()
 
 	file_content = getFileContent(file_path)
+	new_file_path = None
 
-	# create old version version
-	new_file_path = re.sub(r"(\.py)", r"-old.py", file_path)
-	createNewFile(new_file_path, file_content)
+	if data.get_old:
+		# create old version version
+		new_file_path = re.sub(r"(\.py)", r"-old.py", file_path)
+		createNewFile(new_file_path, file_content)
 
 	# reformating
 
@@ -32,7 +35,7 @@ def main():
 
 
 	# update origin file
-	createNewFile(file_path, file_content)
+	updateFile(file_path, file_content)
 
 	# success message
 	print(OutMessage.success(file_path, new_file_path))

@@ -5,6 +5,10 @@ from math import ceil
 def parser():
 	parse = argparse.ArgumentParser()
 	parse.add_argument("--file", "-f", help="python file path (.py)", type=str)
+	parse.add_argument("--get-old", "-go", 
+						help="To get old version of file before reformat, set -go 1 (1 for True and 0 for False)", 
+						default=False, type=bool
+					)
 
 	return parse.parse_args()
 
@@ -13,11 +17,6 @@ def getFileContent(path: str) -> [str]:
 	contents = file.readlines()
 
 	return contents
-
-def getFilePath():
-	file_path = parser().file
-
-	return file_path
 
 def isPythonFile(file_path):
 	return ".py" in file_path and file_path.index(".py") == len(file_path) - 3 # 3 for length of ".py"
@@ -50,3 +49,6 @@ def createNewFile(file_path, contents: [str]):
 		file.write(line)
 
 	file.close()
+
+def updateFile(file_path, contents: [str]):
+	createNewFile(file_path, contents)
