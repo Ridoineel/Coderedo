@@ -18,19 +18,24 @@ def main():
 
 	file_content = getFileContent(file_path)
 
+	# create old version version
+	new_file_path = re.sub(r"(\.py)", r"-old.py", file_path)
+	createNewFile(new_file_path, file_content)
+
+	# reformating
+
 	for i in range(len(file_content)):
 		line = file_content[i]
 
 		# replace start whitespaces by tabs
 		file_content[i] = whitespacesToTabs(line)
 
-	# create new file and put the update of file
-	new_file_path = re.sub(r"(\.py)", r"-coderedo.py", file_path)
 
-	createNewFile(new_file_path, file_content)
+	# update origin file
+	createNewFile(file_path, file_content)
 
 	# success message
-	print(OutMessage.success(new_file_path))
+	print(OutMessage.success(file_path, new_file_path))
 
 if __name__ == '__main__':
 	main()
