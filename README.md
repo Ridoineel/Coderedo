@@ -53,7 +53,7 @@ python3 test/test.py
 
 **Output**
 
-```python
+```bash
 Hello Wolrd !
 Your are awesome
 ```
