@@ -1,7 +1,7 @@
 # Coderedo
 Python code reformater
 
-> Coderedo is simple program to reformat your python code, after indention error for example.
+> Coderedo is simple program to reformat your python code, after indention error for example 🤗️.
 
 > ###### To use coderedo, make this
 
@@ -35,7 +35,7 @@ File "test/test.py", line 4
 TabError: inconsistent use of tabs and spaces in indentation
 ```
 
-There was a runtime error because, there are spaces for indentation on line 2 and tabulations on line 3.
+🤧️ There was a runtime error because, there are spaces for indentation on line 2 and tabulations on line 3.
 > Note: In python, there only must be indentions or spaces per code sub bloc
 
 ### Fix this with coderedo
@@ -58,7 +58,7 @@ Hello Wolrd !
 Your are awesome
 ```
 
-Ouff...
+Ouff 🙂️...
 
 ## Futures
-* Make recursive on a directory
+* Make recursive on a directory 🤔️
