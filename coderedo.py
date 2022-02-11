@@ -10,6 +10,9 @@ def main():
 	
 	file_path = data.file
 
+
+	tab_size = data.tab_size or 4
+
 	if not file_path:
 		os.system(f"{__file__} --help")
 		exit()
@@ -21,7 +24,7 @@ def main():
 	new_file_path = None
 
 	if data.get_old:
-		# create old version version
+		# create old version file
 		new_file_path = re.sub(r"(\.py)", r"-old.py", file_path)
 		createNewFile(new_file_path, file_content)
 
@@ -31,7 +34,7 @@ def main():
 		line = file_content[i]
 
 		# replace start whitespaces by tabs
-		file_content[i] = whitespacesToTabs(line)
+		file_content[i] = whitespacesToTabs(line, tab_size)
 
 
 	# update origin file
