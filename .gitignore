@@ -1,3 +1,5 @@
 __pycache__
 todo.txt
 /src/coderedo/test*
+dist
+/src/coderedo.egg*

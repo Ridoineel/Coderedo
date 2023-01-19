@@ -1,4 +1,0 @@
-1. update file and create old version file
-2. Manage output message and Style
-3. Review withSpacesWithTab algorithm
-git commit -m add .gitignore

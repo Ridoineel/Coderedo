@@ -1,24 +1,26 @@
 # Coderedo
 Python code reformater
 
-> Coderedo is simple program to reformat your python code, after indention error for example 🤗️.
+> Coderedo is a simple program to reformat your python code, after indention error for example 🤗️.
 
-> ###### To use coderedo, make this
+# Installation
 
 ```bash
-git clone https://github.com/RidoineEl/coderedo.git
-cd coderedo
-python3 coderedo.py -f test.py
+pip install coderedo
+python -m coderedo -p file.py
+# or apply on a directory
+python -m coderedo -p projects/
 ```
 
-#### Coderedo parameters:
-* -f or --file: the path of python file
+## Arguments:
+* -p or --path: the path to a python file or python project directory
 * -go or --get-old: set value on 1 to get the old version of the processed file. *(optional)*
-* -t or --tab-size: your tab size, default is 4 *(optional)*
+* -t or --tab-size: your tab size, default value: 4
 
-## Example scenario
+## Example with a file
 Take this file: test.py in test directory <br>
 test/test.py
+
 ```python
 def func():
   print("Hello Wolrd !")
@@ -60,5 +62,28 @@ Your are awesome
 
 Ouff 🙂️...
 
-## Futures
-* Make recursive on a directory 🤔️
+## Example with a directory
+
+You can apply coderedo on all the files of a directory recursively
+
+Example
+
+```bash
+project/
+  utils/
+    functions.py
+    variables.py
+  main.py  
+```
+
+```bash
+python -m coderedo -d project
+```
+
+is equal to
+
+```bash
+python -m coderedo -d project/main.py
+python -m coderedo -d project/utils/functions.py
+python -m coderedo -d project/utils/variables.py
+```
